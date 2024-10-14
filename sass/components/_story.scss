@@ -1,0 +1,73 @@
+.story {
+  font-size: 1.6rem;
+  width: 75%;
+  margin: 0 auto;
+  padding: 6rem;
+  padding-left: 9rem;
+  background-color: $color-white;
+  transform: skewX(-12deg);
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  @include clearfix;
+
+  @include respond(tab-land) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skew(0);
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    transform: translateX(-3rem) skewX(12deg);
+    float: left;
+    clip-path: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    position: relative;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skew(0);
+    }
+  }
+
+  &__caption {
+    font-size: 1.7rem;
+    color: $color-white;
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  &__img {
+    height: 100%;
+    transition: all 0.5s;
+    transform: translateX(-4rem) scale(1.4);
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skew(0);
+    }
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
